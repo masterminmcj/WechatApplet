@@ -1,0 +1,5 @@
+
+<view>使用图表</view>
+<view class="chartBox">
+  <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+</view>

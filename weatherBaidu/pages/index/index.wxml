@@ -1,0 +1,102 @@
+<!--index.wxml-->
+<view class="container">
+
+ <view class="part-top">
+
+
+ 
+
+<view class='address' wx-if='{{address}}' >
+<view class='bg_top'>
+<image src='/images/icon/local.png'></image>{{address}}
+<text class='pullR'>{{nowDate}}{{weatherData.update_time}}更新</text>
+
+</view>
+<!-- 天气主体信息 -->
+<view class='mainInfo'>
+<!-- 当前信息 -->
+<view catchlongtap='now-weather'>
+<text class='temp'>{{weatherData.temp}}°</text>
+<!-- <text class='degress'>。</text> -->
+<text class='direct'>{{weatherData.temp_level}}</text>
+<text class='now_w'>{{weatherData.now_weather}}</text>
+</view>
+
+<!-- 一天情况 -->
+<view class='day-info'>
+<text class="temp">{{weatherData.temp_range}}</text>
+<text class='line-split'></text>
+<text class="win2">{{weatherData.temp_wind}}</text>
+<text class="win3">PM2.5:{{weatherData.PM25}}</text>
+</view>
+
+
+
+<!-- 空气质量 -->
+<view class='advice'>
+<text>{{weatherData.dress_advice}}
+</text>
+</view>
+</view>
+
+</view>
+ </view>
+
+
+
+
+<view class="part-hours">
+
+<text class='hours_tl'>未来三天天气趋势</text>
+
+ <view>
+ <view class='trend1 mt60'>
+
+<!-- 星期 -->
+<view wx:for='{{weatherData.future}}' wx:for-item='item'>{{item}}</view>
+
+
+ </view>
+ 
+
+<!-- //月日 -->
+
+ <view class='trend1 wt1' >
+
+
+<view wx:for='{{weatherData.weathers}}' wx:for-item='item'>{{item}}</view>
+
+
+ </view>
+
+<!-- 天气情况 -->
+
+ <!-- <view class='trend1'>
+<view wx:for='{{weatherData.future}}' wx:for-item='item'>{{item.weather}}</view>
+
+ </view> -->
+
+
+
+
+ </view>
+
+
+<view>
+<view class="chartBox" wx:if='{{dataIsLoad}}'>
+
+  <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+   <view class='trend1 wind' >
+<view wx:for='{{Wind}}' wx:for-item='item'>{{item}}</view>
+
+</view>
+
+</view>
+
+
+
+</view>
+
+</view>
+
+</view>
